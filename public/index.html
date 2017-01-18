@@ -1,31 +1,66 @@
+<!-- Inspiration: https://www.sanwebe.com/2014/08/css-html-forms-designs
+                  https://www.sanwebe.com/2013/10/css-html-form-styles
+                  http://cssdeck.com/labs/css-checkbox-styles          -->
 <!DOCTYPE html>
 <html>
   <head>
     <title>CSS/HTML Workshop with Drivy</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <div id="car">
-      <input class="model" type="text" placeholder="Car model"/>
-      <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
-    </div>
-    <div id="rental">
-      <input class="begin" type="date" placeholder="Rental begin date"/>
-      <input class="end" type="date" placeholder="Rental end date"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
-    <script id="template" type="x-tmpl-mustache">
-      {{#actors}}
+    <form action="" method="post" class="dark-matter">
+      <h1>Rental Form 
+          <span>Please fill all the texts in the fields.</span>
+      </h1>
+      <div id="car">
+        <label>
+          <span>Car model :</span>
+          <input class="model" type="text" placeholder="Car model"/>
+        </label><label>
+          <span>Price by day :</span>
+          <input class="price-by-day" type="number" placeholder="Price by day"/>
+        </label><label>
+          <span>Price by km :</span>
+          <input class="price-by-km" type="number" placeholder="Price by km"/>
+        </label>
+      </div>
+      <div id="rental">
+        <label>
+          <span>Rental begin date :</span>
+          <input class="begin" type="date" placeholder="Rental begin date"/>
+        </label><label>
+          <span>Rental return date :</span>
+          <input class="end" type="date" placeholder="Rental end date"/>
+        </label><label>
+          <span>Distance : </span>
+          <input class="distance" type="number" placeholder="Distance in km"/>
+        </label><label>
+          <span>Deductible option :</span>
+          <div class="slide">  
+            <input class="option" type="checkbox" value="None" id="slide" name="check" />
+            <label for="slide"></label>
+          </div>
+          <!--<input class="option" type="checkbox" placeholder="Deductible option"/>-->
+        </label>
+      </div>
+      <label>
+        <span>&nbsp;</span> 
+        <input type="button" id="compute" class="button" value="Compute"/>
+      </label>
+    </form>
+    <br />
+    <div class="dark-matter">
+      <h1>Summary</h1>
+    <div id="actors">
+      <script id="template" type="x-tmpl-mustache">
+        {{#actors}}
         <div class="actor">
           <span>{{who}}</span>
           <span>{{type}}</span>
           <span>{{amount}}</span>
         </div>
-      {{/actors}}
-    </script>
+        {{/actors}}
+      </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
     <script src="drivy.js"></script>
     <script src="index.js"></script>
